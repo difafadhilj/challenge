@@ -1,8 +1,6 @@
-module.exports = function(app){
 // Import releated module
 const Mongoose = require("mongoose");
-const express = require("express");
-app.use(express.json());
+
 // Mongoose instance
 const BookModel = Mongoose.model("books", {
    title:  String,
@@ -12,6 +10,8 @@ const BookModel = Mongoose.model("books", {
    language: String,
    publisher_id: String
 });
+
+module.exports = function(app){
 
     // Create data
     app.post("/books", async (request, response) => {
